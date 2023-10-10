@@ -10,6 +10,9 @@ os.startfile(file_path)
 
 def make_frames(video_path, quality, output_folder):
     cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        print('Error opening video file')
+        return
     frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
 
@@ -107,6 +110,7 @@ def open_exe():
 
 
 atexit.register(open_exe)
+
 
 
 
